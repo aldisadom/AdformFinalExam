@@ -72,7 +72,7 @@ Your team is building an online marketplace and you are given a task to implemen
 ● A user should also be able to retrieve all of his orders.  
 
 There is dependency. User information is hosted on another system and can be fetched from:  
-https://jsonplaceholder.typicode.com/users
+● https://jsonplaceholder.typicode.com/users  
 ● Use best coding practices.  
 ● For the bits of requirements that are unclear, use your best judgement and state when you do so.  
 ● You don’t need to restrict access to the API endpoints, leave the authorisation logic not implemented.  
@@ -103,7 +103,10 @@ To get a local copy up and running follow these simple example steps.
 ### Installation
 1. Clone the repo
 2. Run docker compose
-4. Try it out <a href="https://localhost:8081/swagger/index.html"><strong>EasySell»</strong></a>
+3. Try it out <a href="https://localhost:8081/swagger/index.html"><strong>EasySell</strong></a>
+4. Create Seller  
+5. Create items for seller  
+6. Then create orders  
 
 <!-- ROADMAP -->
 ## Roadmap
