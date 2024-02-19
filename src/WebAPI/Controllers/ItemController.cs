@@ -1,12 +1,13 @@
 using Application.Interfaces;
-using Contracts.Requests;
-using Contracts.Responses;
+using Contracts.Requests.Item;
+using Contracts.Responces;
+using Contracts.Responces.Item;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
 
 /// <summary>
-/// This is a sample controller for demonstrating XML comments in ASP.NET Core.
+/// This is a item controller
 /// </summary>
 [ApiController]
 [Route("v1/[controller]")]
@@ -28,17 +29,6 @@ public class ItemController : ControllerBase
     }
 
     /// <summary>
-    /// Gets all items
-    /// </summary>
-    /// <returns>list of items</returns>
-    [HttpGet]
-    [ProducesResponseType(typeof(ItemResponce), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Get()
-    {
-        return Ok(await _itemService.Get());
-    }
-
-    /// <summary>
     /// Get single item
     /// </summary>
     /// <param name="id">Item ID</param>
@@ -52,15 +42,25 @@ public class ItemController : ControllerBase
     }
 
     /// <summary>
-    /// Adds item to shop
+    /// Get all items
+    /// </summary>
+    /// <returns>List of items</returns>
+    [HttpGet]
+    [ProducesResponseType(typeof(ItemListResponce), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Get()
+    {
+        return Ok((await _itemService.Get()).items);
+    }
+
+    /// <summary>
+    /// Adds item to seller
     /// </summary>
     /// <param name="item">Item data to add</param>
     /// <returns>ID of item</returns>
     [HttpPost]
-    [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ItemAddResponce), StatusCodes.Status201Created)]
     public async Task<IActionResult> Add(ItemAddRequest item)
     {
-        Guid id = await _itemService.Add(item);
-        return CreatedAtAction(nameof(Get), new { id });
+        return CreatedAtAction(nameof(Add), await _itemService.Add(item));
     }
 }

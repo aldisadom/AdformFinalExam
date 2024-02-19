@@ -1,15 +1,15 @@
 ﻿using Dapper;
 using Domain.Entities;
-using Domain.Interfaces;
+using Domain.Repositories;
 using System.Data;
 
 namespace Infrastructure.Repository;
 
-public class ItemRepository : IItemRepository
+public class OrderRepository : IOrderRepository
 {
     private readonly IDbConnection _dbConnection;
 
-    public ItemRepository(IDbConnection dbConnection)
+    public OrderRepository(IDbConnection dbConnection)
     {
         _dbConnection = dbConnection;
     }
@@ -37,5 +37,22 @@ public class ItemRepository : IItemRepository
                         RETURNING id";
 
         return await _dbConnection.ExecuteScalarAsync<Guid>(sql, item);
+    }
+
+    public async Task Update(ItemEntity item)
+    {
+        string sql = @"UPDATE items
+                        SET name=@Name, price=@Price, seller_id=@SellerId
+                        WHERE id=@Id";
+
+        await _dbConnection.ExecuteAsync(sql, item);
+    }
+
+    public async Task Delete(Guid id)
+    {
+        string sql = @"DELETE FROM items
+                        WHERE id=@Id";
+
+        await _dbConnection.ExecuteAsync(sql, new { id });
     }
 }

@@ -1,15 +1,11 @@
-﻿using Contracts.Requests;
-using Contracts.Responses;
+﻿using Contracts.Requests.Item;
+using Contracts.Responces.Item;
 
 namespace Application.Interfaces;
 
 public interface IItemService
 {
-    Task<Guid> Add(ItemAddRequest item);
-    Task AddToShop(Guid id, Guid shopId);
-    Task Delete(Guid id);
-    Task<List<ItemResponce>> Get();
+    Task<ItemAddResponce> Add(ItemAddRequest item);
     Task<ItemResponce> Get(Guid id);
-    decimal GetItemsPrice(ItemResponce item, uint quantity);
-    Task Update(Guid id, ItemAddRequest item);
+    Task<ItemListResponce> Get();
 }

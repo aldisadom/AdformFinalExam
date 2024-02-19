@@ -1,4 +1,4 @@
-﻿namespace Contracts.Responses;
+﻿namespace Contracts.Responces;
 
 public class ErrorResponce
 {

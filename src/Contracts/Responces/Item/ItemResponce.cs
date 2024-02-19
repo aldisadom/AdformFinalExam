@@ -1,6 +1,6 @@
-﻿namespace Domain.Entities;
+﻿namespace Contracts.Responces.Item;
 
-public class ItemEntity
+public class ItemResponce
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
