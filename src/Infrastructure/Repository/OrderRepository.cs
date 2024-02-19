@@ -2,6 +2,8 @@
 using Domain.Entities;
 using Domain.Repositories;
 using System.Data;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Net.NetworkInformation;
 
 namespace Infrastructure.Repository;
 
@@ -22,6 +24,22 @@ public class OrderRepository : IOrderRepository
         return await _dbConnection.QuerySingleOrDefaultAsync<OrderEntity>(sql, new { id });
     }
 
+    public async Task<OrderEntity?> GetUnfinishedOrder(int userId)
+    {
+        string sql = @"SELECT * FROM orders
+                        WHERE (user_id=@userId AND status='Ordering')";
+
+        return await _dbConnection.QuerySingleOrDefaultAsync<OrderEntity>(sql, new { userId });
+    }
+
+    public async Task<IEnumerable<OrderEntity>> GetUserOrders(int userId)
+    {
+        string sql = @"SELECT * FROM orders
+                        WHERE user_id = @userId";
+
+        return await _dbConnection.QueryAsync<OrderEntity>(sql, new { userId });
+    }
+
     public async Task<IEnumerable<OrderEntity>> Get()
     {
         string sql = @"SELECT * FROM orders";
@@ -32,20 +50,30 @@ public class OrderRepository : IOrderRepository
     public async Task<Guid> Add(OrderEntity order)
     {
         string sql = @"INSERT INTO orders
-                        (name, price, seller_id)
-                        VALUES (@Name, @Price, @SellerId)
+                        (status, user_id, seller_id)
+                        VALUES (@Status, @UserId, @SellerId)
                         RETURNING id";
 
         return await _dbConnection.ExecuteScalarAsync<Guid>(sql, order);
     }
 
-    public async Task Update(OrderEntity order)
+    public async Task AddItemToOrder(OrderItemEntity order)
+    {
+        string sql = @"INSERT INTO orders_items
+                        (order_id, item_id)
+                        VALUES (@OrderId, @ItemId)";
+
+        await _dbConnection.ExecuteScalarAsync<Guid>(sql, order);
+    }
+
+    public async Task<OrderEntity> Update(OrderEntity order)
     {
         string sql = @"UPDATE orders
-                        SET name=@Name, price=@Price, seller_id=@SellerId
-                        WHERE id=@Id";
+                        SET status=@status
+                        WHERE id=@Id
+                        RETURNING status";
 
-        await _dbConnection.ExecuteAsync(sql, order);
+        return (await _dbConnection.QuerySingleOrDefaultAsync<OrderEntity>(sql, order))!;
     }
 
     public async Task Delete(Guid id)

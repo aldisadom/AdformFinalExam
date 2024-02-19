@@ -23,7 +23,7 @@ public class UserService : IUserService
         _client = client;
     }
 
-    public async Task<UserEntity?> Get(int id)
+    public async Task<UserEntity> Get(int id)
     {
         UserEntity? user = await _userRepository.Get(id);
 

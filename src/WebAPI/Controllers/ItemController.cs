@@ -11,6 +11,7 @@ namespace WebAPI.Controllers;
 /// </summary>
 [ApiController]
 [Route("v1/[controller]")]
+[ProducesResponseType(typeof(ErrorResponce), StatusCodes.Status400BadRequest)]
 [ProducesResponseType(typeof(ErrorResponce), StatusCodes.Status500InternalServerError)]
 public class ItemController : ControllerBase
 {

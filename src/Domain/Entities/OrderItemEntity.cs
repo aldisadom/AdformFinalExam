@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts.Requests.Orders;
+namespace Domain.Entities;
 
-public class OrderAddRequest
+public class OrderItemEntity
 {
-    public int UserId { get; set; }
+    public Guid OrderId { get; set; }
     public Guid ItemId { get; set; }
 }

@@ -1,7 +1,9 @@
 ﻿using Application.Interfaces;
 using Contracts.Requests.Item;
+using Contracts.Requests.Orders;
 using Contracts.Responces;
 using Contracts.Responces.Item;
+using Contracts.Responces.Orders;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
@@ -11,6 +13,7 @@ namespace WebAPI.Controllers;
 /// </summary>
 [ApiController]
 [Route("v1/[controller]")]
+[ProducesResponseType(typeof(ErrorResponce), StatusCodes.Status400BadRequest)]
 [ProducesResponseType(typeof(ErrorResponce), StatusCodes.Status500InternalServerError)]
 public class OrderController : ControllerBase
 {
@@ -31,15 +34,14 @@ public class OrderController : ControllerBase
     /// <summary>
     /// Get all user orders order
     /// </summary>
-    /// <param name="user_id">User ID</param>
+    /// <param name="userId">User ID</param>
     /// <returns>User orders properties</returns>
-    [HttpGet("{user_id}")]
-    [ProducesResponseType(typeof(ItemResponce), StatusCodes.Status200OK)]
+    [HttpGet("{userId}")]
+    [ProducesResponseType(typeof(OrderResponce), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErrorResponce), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Get(int user_id)
+    public async Task<IActionResult> Get(int userId)
     {
-        return Ok();
-//        return Ok(await _orderService.Get(user_id));
+        return Ok((await _orderService.GetUserOrders(userId)).Orders);
     }
 
     /// <summary>
@@ -47,23 +49,45 @@ public class OrderController : ControllerBase
     /// </summary>
     /// <returns>List of orders</returns>
     [HttpGet]
-    [ProducesResponseType(typeof(ItemListResponce), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(OrderListResponce), StatusCodes.Status200OK)]
     public async Task<IActionResult> Get()
     {
-        return Ok();
-//        return Ok((await _orderService.Get()).items);
+        return Ok((await _orderService.Get()).Orders);
     }
 
     /// <summary>
     /// Create order
     /// </summary>
-    /// <param name="item">Item data to add</param>
+    /// <param name="order">Item data to add</param>
     /// <returns>ID of item</returns>
     [HttpPost]
-    [ProducesResponseType(typeof(ItemAddResponce), StatusCodes.Status201Created)]
-    public async Task<IActionResult> Add(ItemAddRequest item)
+    [ProducesResponseType(typeof(OrderAddResponce), StatusCodes.Status201Created)]
+    public async Task<IActionResult> Add(OrderAddRequest order)
     {
-        return Ok();
-//        return CreatedAtAction(nameof(Add), await _orderService.Add(item));
+        return CreatedAtAction(nameof(Add), await _orderService.Add(order));
+    }
+
+    /// <summary>
+    /// Create order
+    /// </summary>
+    /// <param name="orderId">Order Id to buy</param>
+    /// <returns>Order status</returns>
+    [HttpPut("{orderId}/buy")]
+    [ProducesResponseType(typeof(OrderStatusResponce), StatusCodes.Status200OK)]
+    public async Task<IActionResult> BuyOrder(Guid orderId)
+    {
+        return CreatedAtAction(nameof(BuyOrder), await _orderService.BuyOrder(orderId));
+    }
+
+    /// <summary>
+    /// Create order
+    /// </summary>
+    /// <param name="orderId">Order Id to buy</param>
+    /// <returns>Order status</returns>
+    [HttpPut("{orderId}/deliver")]
+    [ProducesResponseType(typeof(OrderStatusResponce), StatusCodes.Status200OK)]
+    public async Task<IActionResult> DeliverOrder(Guid orderId)
+    {
+        return CreatedAtAction(nameof(DeliverOrder), await _orderService.DeliverOrder(orderId));
     }
 }

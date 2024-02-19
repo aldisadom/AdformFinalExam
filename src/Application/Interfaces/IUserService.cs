@@ -4,5 +4,5 @@ namespace Application.Interfaces;
 
 public interface IUserService
 {
-    Task<UserEntity?> Get(int id);
+    Task<UserEntity> Get(int id);
 }
