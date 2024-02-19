@@ -19,7 +19,7 @@ public static class StartupSwagger
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "EasySell API", Version = "v1" });
 
             // Set the comments path for the Swagger JSON and UI.
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -40,7 +40,7 @@ public static class StartupSwagger
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "EasySell API v1");
         });
 
         return app;

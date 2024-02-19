@@ -1,10 +1,8 @@
 ﻿using Clients;
 using Clients.Clients;
 using Domain.Clients;
-using Domain.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace Infrastructure.Clients;
 
@@ -39,7 +37,7 @@ public class JsonplaceholderClient : IUserClient
 
         List<JsonplaceholderClientData> userList = JsonConvert.DeserializeObject<IEnumerable<JsonplaceholderClientData>>(responseBody)!.ToList();
 
-        if (userList.Count() !=1)
+        if (userList.Count() != 1)
             return new JsonplaceholderClientDataResponse
             {
                 IsSuccessful = false,

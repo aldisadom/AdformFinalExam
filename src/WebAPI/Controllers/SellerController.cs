@@ -1,8 +1,6 @@
 ﻿using Application.Interfaces;
-using Application.Services;
 using Contracts.Requests.Seller;
 using Contracts.Responces;
-using Contracts.Responces.Item;
 using Contracts.Responces.Seller;
 using Microsoft.AspNetCore.Mvc;
 

@@ -25,15 +25,7 @@
   <h3 align="center">Best-README-Template</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/aldisadom/AdformFinalExam"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/aldisadom/AdformFinalExam">View Demo</a>
-    ·
-    <a href="https://github.com/aldisadom/AdformFinalExam/issues">Report Bug</a>
-    ·
+    Fastest and easiest item selling platform, that can run or crash badly
     <a href="https://github.com/aldisadom/AdformFinalExam/issues">Request Feature</a>
   </p>    
 </div>
@@ -110,26 +102,25 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 1. Clone the repo
-2. Copy settings from appsettings.json to appsettings.development.json
-3. Run docker compose
-4. Try it out <a href="https://localhost:8081/swagger/index.html"><strong>Adform final exam»</strong></a>
+2. Run docker compose
+4. Try it out <a href="https://localhost:8081/swagger/index.html"><strong>EasySell»</strong></a>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Functionality goes first
-- [ ] Validation and exception handling
-- [ ] Unit tests.
-- [ ] Readme file
-- [ ] Database schema, migrations.
-- [ ] REST design, REST design should follow Adform guidelines if possible.
-- [ ] Architecture and naming
-- [ ] Docker-compose
-- [ ] Api documentation
+- [+] Functionality goes first
+- [+] Validation and exception handling
+- [+-] Unit tests.
+- [+] Readme file
+- [+] Database schema, migrations.
+- [+] REST design, REST design should follow Adform guidelines if possible.
+- [+] Architecture and naming
+- [+] Docker-compose
+- [+] Api documentation
 
 Easy bonus points for:
-- [ ] Migrations are done with Liquibase
-- [ ] Migrations have rollbacks.
+- [+] Migrations are done with Liquibase
+- [+] Migrations have rollbacks.
 - [ ] RestClient or Postman collection for easier testing.
 - [ ] CQRS, mediator patterns implemented.
 - [ ] Integration tests
@@ -169,9 +160,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Aldis Adomavičius - aldisadom@gmail.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

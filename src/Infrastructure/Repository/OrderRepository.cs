@@ -2,8 +2,6 @@
 using Domain.Entities;
 using Domain.Repositories;
 using System.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Net.NetworkInformation;
 
 namespace Infrastructure.Repository;
 

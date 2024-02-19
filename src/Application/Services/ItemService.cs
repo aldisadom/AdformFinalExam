@@ -1,7 +1,6 @@
 ﻿using Application.Interfaces;
 using Contracts.Requests.Item;
 using Contracts.Responces.Item;
-using Contracts.Responces.Seller;
 using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Interfaces;
@@ -40,7 +39,7 @@ public class ItemService : IItemService
     {
         IEnumerable<ItemEntity> itemEntities = await _itemRepository.Get();
 
-        ItemListResponce responce = new ()
+        ItemListResponce responce = new()
         {
             items = itemEntities.Select(i => new ItemResponce()
             {
@@ -51,7 +50,7 @@ public class ItemService : IItemService
             }
             ).ToList()
         };
-        
+
         return responce;
     }
 

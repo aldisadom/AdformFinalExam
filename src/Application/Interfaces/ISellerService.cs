@@ -1,5 +1,4 @@
 ﻿using Contracts.Requests.Seller;
-using Contracts.Responces.Item;
 using Contracts.Responces.Seller;
 
 namespace Application.Interfaces;

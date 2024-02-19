@@ -1,5 +1,4 @@
 ﻿using Application.Interfaces;
-using Serilog.Core;
 
 namespace WebAPI.BackgroundServices;
 

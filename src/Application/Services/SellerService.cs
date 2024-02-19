@@ -1,6 +1,5 @@
 ﻿using Application.Interfaces;
 using Contracts.Requests.Seller;
-using Contracts.Responces.Item;
 using Contracts.Responces.Seller;
 using Domain.Entities;
 using Domain.Exceptions;
@@ -35,7 +34,7 @@ public class SellerService : ISellerService
     {
         IEnumerable<SellerEntity> sellerEntities = await _sellerRepository.Get();
 
-        SellerListResponce responce = new ()
+        SellerListResponce responce = new()
         {
             sellers = sellerEntities.Select(i => new SellerResponce()
             {

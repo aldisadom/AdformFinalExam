@@ -1,13 +1,9 @@
 ﻿using Application.Interfaces;
 using Clients;
-using Contracts.Requests.Item;
-using Contracts.Responces.Item;
 using Domain.Clients;
 using Domain.Entities;
 using Domain.Exceptions;
-using Domain.Interfaces;
 using Domain.Repositories;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Application.Services;
 

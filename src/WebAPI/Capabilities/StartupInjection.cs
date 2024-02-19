@@ -1,6 +1,4 @@
 ﻿using Application;
-using Application.Interfaces;
-using Application.Services;
 using Clients;
 using Infrastructure;
 using WebAPI.BackgroundServices;

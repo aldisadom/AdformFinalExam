@@ -11,8 +11,8 @@ public class ItemsServiceTest
 
     public ItemsServiceTest()
     {
-//        _itemRepositoryMock = new Mock<IItemRepository>();
-//        _itemService = new ItemService(_itemRepositoryMock.Object);
+        //        _itemRepositoryMock = new Mock<IItemRepository>();
+        //        _itemService = new ItemService(_itemRepositoryMock.Object);
     }
     /*
         [Theory]
