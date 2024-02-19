@@ -102,7 +102,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 1. Clone the repo
-2. Run docker compose (if you get certificates error, I get this sometimes if you have solution please share how to fix)
+2. Run docker compose (if you get certificates error, I get this sometimes if you have solution please share how to fix)  
 2.5 If application fails to start in docker run it localy it will connect to database
 3. Try it out <a href="https://localhost:8081/swagger/index.html"><strong>EasySell</strong></a>
 4. Create Seller  
