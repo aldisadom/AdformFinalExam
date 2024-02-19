@@ -8,6 +8,6 @@ public static class DependencyInjection
     public static void AddClients(this IServiceCollection services)
     {
         //inject client
-        services.AddScoped<IClient, OpenExchangeClient>();
+        services.AddScoped<IUserClient, JsonplaceholderClient>();
     }
 }

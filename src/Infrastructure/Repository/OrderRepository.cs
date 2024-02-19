@@ -14,43 +14,43 @@ public class OrderRepository : IOrderRepository
         _dbConnection = dbConnection;
     }
 
-    public async Task<ItemEntity?> Get(Guid id)
+    public async Task<OrderEntity?> Get(Guid id)
     {
-        string sql = @"SELECT * FROM items
+        string sql = @"SELECT * FROM orders
                         WHERE id=@Id";
 
-        return await _dbConnection.QuerySingleAsync<ItemEntity>(sql, new { id });
+        return await _dbConnection.QuerySingleOrDefaultAsync<OrderEntity>(sql, new { id });
     }
 
-    public async Task<IEnumerable<ItemEntity>> Get()
+    public async Task<IEnumerable<OrderEntity>> Get()
     {
-        string sql = @"SELECT * FROM items";
+        string sql = @"SELECT * FROM orders";
 
-        return await _dbConnection.QueryAsync<ItemEntity>(sql);
+        return await _dbConnection.QueryAsync<OrderEntity>(sql);
     }
 
-    public async Task<Guid> Add(ItemEntity item)
+    public async Task<Guid> Add(OrderEntity order)
     {
-        string sql = @"INSERT INTO items
+        string sql = @"INSERT INTO orders
                         (name, price, seller_id)
                         VALUES (@Name, @Price, @SellerId)
                         RETURNING id";
 
-        return await _dbConnection.ExecuteScalarAsync<Guid>(sql, item);
+        return await _dbConnection.ExecuteScalarAsync<Guid>(sql, order);
     }
 
-    public async Task Update(ItemEntity item)
+    public async Task Update(OrderEntity order)
     {
-        string sql = @"UPDATE items
+        string sql = @"UPDATE orders
                         SET name=@Name, price=@Price, seller_id=@SellerId
                         WHERE id=@Id";
 
-        await _dbConnection.ExecuteAsync(sql, item);
+        await _dbConnection.ExecuteAsync(sql, order);
     }
 
     public async Task Delete(Guid id)
     {
-        string sql = @"DELETE FROM items
+        string sql = @"DELETE FROM orders
                         WHERE id=@Id";
 
         await _dbConnection.ExecuteAsync(sql, new { id });

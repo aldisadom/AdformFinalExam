@@ -19,7 +19,7 @@ public class SellerRepository : ISellerRepository
         string sql = @"SELECT * FROM sellers
                         WHERE id=@Id";
 
-        return await _dbConnection.QuerySingleAsync<SellerEntity>(sql, new { id });
+        return await _dbConnection.QuerySingleOrDefaultAsync<SellerEntity>(sql, new { id });
     }
 
     public async Task<IEnumerable<SellerEntity>> Get()
@@ -29,13 +29,13 @@ public class SellerRepository : ISellerRepository
         return await _dbConnection.QueryAsync<SellerEntity>(sql);
     }
 
-    public async Task<Guid> Add(SellerEntity item)
+    public async Task<Guid> Add(SellerEntity seller)
     {
         string sql = @"INSERT INTO sellers
                         (name)
                         VALUES (@Name)
                         RETURNING id";
 
-        return await _dbConnection.ExecuteScalarAsync<Guid>(sql, item);
+        return await _dbConnection.ExecuteScalarAsync<Guid>(sql, seller);
     }
 }

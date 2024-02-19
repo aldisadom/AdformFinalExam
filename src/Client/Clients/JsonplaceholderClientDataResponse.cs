@@ -2,9 +2,9 @@
 
 namespace Domain.Clients;
 
-public class ClientDataResponse
+public class JsonplaceholderClientDataResponse
 {
     public bool IsSuccessful { get; set; }
     public string? ErrorMessage { get; set; }
-    public ClientData? Data { get; set; }
+    public JsonplaceholderClientData? Data { get; set; }
 }

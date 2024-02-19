@@ -4,25 +4,25 @@ using Domain.Clients;
 using Domain.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Infrastructure.Clients;
 
-public class OpenExchangeClient : IClient
+public class JsonplaceholderClient : IUserClient
 {
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly string _apiKey = string.Empty;
 
-    public OpenExchangeClient(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+    public JsonplaceholderClient(IHttpClientFactory httpClientFactory, IConfiguration configuration)
     {
         _httpClientFactory = httpClientFactory;
-        _apiKey = configuration["APIKey"]
-                ?? throw new ClientAPIException("API key not provided");
     }
 
-    public async Task<ClientDataResponse> Get(DateTime date)
+    //https://jsonplaceholder.typicode.com/users?id=1
+    public async Task<JsonplaceholderClientDataResponse> Get(int userId)
     {
         using HttpClient client = _httpClientFactory.CreateClient();
-        var url = new Uri($"https://openexchangerates.org/api/historical/{date:yyyy'-'MM'-'dd}.json?app_id={_apiKey}");
+        var url = new Uri($"https://jsonplaceholder.typicode.com/users?id={userId}");
 
         var request = new HttpRequestMessage(HttpMethod.Get, url);
         var response = await client.SendAsync(request);
@@ -30,18 +30,28 @@ public class OpenExchangeClient : IClient
         string responseBody = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
-            return new ClientDataResponse
+            return new JsonplaceholderClientDataResponse
             {
                 IsSuccessful = false,
                 ErrorMessage = response.StatusCode.ToString(),
                 Data = null,
             };
 
-        return new ClientDataResponse
+        List<JsonplaceholderClientData> userList = JsonConvert.DeserializeObject<IEnumerable<JsonplaceholderClientData>>(responseBody)!.ToList();
+
+        if (userList.Count() !=1)
+            return new JsonplaceholderClientDataResponse
+            {
+                IsSuccessful = false,
+                ErrorMessage = response.StatusCode.ToString(),
+                Data = null,
+            };
+
+        return new JsonplaceholderClientDataResponse
         {
             IsSuccessful = true,
             ErrorMessage = null,
-            Data = JsonConvert.DeserializeObject<ClientData>(responseBody),
+            Data = userList[0],
         };
     }
 }

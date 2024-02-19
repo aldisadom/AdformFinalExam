@@ -10,5 +10,5 @@ public class ItemAddRequest
     [Required]
     public decimal Price { get; set; }
 
-    public Guid? ShopId { get; set; }
+    public Guid SellerId { get; set; }
 }

@@ -12,10 +12,12 @@ namespace Application.Services;
 public class ItemService : IItemService
 {
     private readonly IItemRepository _itemRepository;
+    private readonly ISellerRepository _sellerRepository;
 
-    public ItemService(IItemRepository itemRepository)
+    public ItemService(IItemRepository itemRepository, ISellerRepository sellerRepository)
     {
         _itemRepository = itemRepository;
+        _sellerRepository = sellerRepository;
     }
 
     public async Task<ItemResponce> Get(Guid id)
@@ -55,10 +57,14 @@ public class ItemService : IItemService
 
     public async Task<ItemAddResponce> Add(ItemAddRequest item)
     {
+        _ = (await _sellerRepository.Get(item.SellerId))
+                ?? throw new ArgumentException("Invalid seller ID");
+
         ItemEntity itemEntity = new()
         {
             Name = item.Name,
             Price = item.Price,
+            SellerId = item.SellerId
         };
 
         Guid id = await _itemRepository.Add(itemEntity);
