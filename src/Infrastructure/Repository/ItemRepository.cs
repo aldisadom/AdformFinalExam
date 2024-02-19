@@ -22,6 +22,15 @@ public class ItemRepository : IItemRepository
         return await _dbConnection.QuerySingleOrDefaultAsync<ItemEntity>(sql, new { id });
     }
 
+    public async Task<IEnumerable<ItemEntity>> GetOrderItems(Guid orderId)
+    {
+        string sql = @"SELECT * FROM items
+                        INNER JOIN orders_items ON orders_items.item_id=items.id
+                        WHERE orders_items.order_id=@orderId";
+
+        return await _dbConnection.QueryAsync<ItemEntity>(sql, new { orderId });
+    }
+
     public async Task<IEnumerable<ItemEntity>> Get()
     {
         string sql = @"SELECT * FROM items";

@@ -25,6 +25,17 @@ public class OrderService : IOrderService
         _userService = userService;
     }
 
+    private async Task FillOrderWithItems(OrderResponce order)
+    {
+        order.Items = (await _itemRepository.GetOrderItems(order.Id)).Select(i => new ItemResponce()
+        {
+            Id = i.Id,
+            Name = i.Name,
+            Price = i.Price,
+            SellerId = i.SellerId,
+        }).ToList();
+    }
+
     public async Task<OrderResponce> Get(Guid id)
     {
         OrderEntity orderEntity = await _orderRepository.Get(id)
@@ -35,9 +46,10 @@ public class OrderService : IOrderService
             Id = orderEntity.Id,
             UserId = orderEntity.UserId,
             SellerId = orderEntity.SellerId,
-            Status = orderEntity.Status,
-            Items = new List<ItemResponce>()
+            Status = orderEntity.Status
         };
+
+        await FillOrderWithItems(responce);
 
         return responce;
     }
@@ -48,16 +60,21 @@ public class OrderService : IOrderService
 
         OrderListResponce responce = new()
         {
+
             Orders = orderEntities.Select(o => new OrderResponce()
             {
                 Id = o.Id,
                 UserId = o.UserId,
                 SellerId = o.SellerId,
-                Status = o.Status,
-                Items = new List<ItemResponce>()
+                Status = o.Status
             }
             ).ToList()
         };
+
+        foreach (OrderResponce order in responce.Orders)
+        {
+            await FillOrderWithItems(order);
+        }
 
         return responce;
     }
@@ -68,16 +85,21 @@ public class OrderService : IOrderService
 
         OrderListResponce responce = new()
         {
+
             Orders = orderEntities.Select(o => new OrderResponce()
             {
                 Id = o.Id,
                 UserId = o.UserId,
                 SellerId = o.SellerId,
-                Status = o.Status,
-                Items = new List<ItemResponce>()
+                Status = o.Status
             }
             ).ToList()
         };
+
+        foreach (OrderResponce order in responce.Orders)
+        {
+            await FillOrderWithItems(order);
+        }
 
         return responce;
     }
