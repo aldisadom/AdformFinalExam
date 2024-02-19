@@ -57,7 +57,7 @@ public class ItemService : IItemService
     public async Task<ItemAddResponce> Add(ItemAddRequest item)
     {
         if (item.Price < 0.01m)
-            throw new ArgumentException($"Invalid prive for {item.Name}, should be at least 0.01");
+            throw new ArgumentException($"Invalid price for {item.Name}, should be at least 0.01");
 
         _ = (await _sellerRepository.Get(item.SellerId))
                 ?? throw new ArgumentException("Invalid seller ID");
