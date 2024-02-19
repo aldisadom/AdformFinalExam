@@ -11,4 +11,5 @@ public interface IOrderService
     Task<OrderListResponce> Get();
     Task<OrderResponce> Get(Guid id);
     Task<OrderListResponce> GetUserOrders(int userId);
+    Task<int> CleanUnfinishedOrders(DateTime date);
 }

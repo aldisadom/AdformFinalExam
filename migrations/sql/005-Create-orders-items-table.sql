@@ -3,8 +3,8 @@
 -- changeset Aldis:5
 -- comment: Create orders_items table
 CREATE TABLE orders_items (
-    order_id UUID NOT NULL,
-    item_id UUID NOT NULL,
+    order_id UUID NOT NULL REFERENCES orders ON DELETE CASCADE,
+    item_id UUID NOT NULL REFERENCES items ON DELETE CASCADE,
     CONSTRAINT fk_orders
       FOREIGN KEY(order_id) 
         REFERENCES orders(id),

@@ -28,6 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "migrations", "migrations", 
 	ProjectSection(SolutionItems) = preProject
 		migrations\sql\001-Create-seller-table.sql = migrations\sql\001-Create-seller-table.sql
 		migrations\dbChangeLog.yaml = migrations\dbChangeLog.yaml
+		migrations\sql\006-Alter-orders-table-add-date.sql = migrations\sql\006-Alter-orders-table-add-date.sql
 		migrations\sql\005-Create-orders-items-table.sql = migrations\sql\005-Create-orders-items-table.sql
 		migrations\sql\004-Create-orders-table.sql = migrations\sql\004-Create-orders-table.sql
 		migrations\sql\003-Create-items-table.sql = migrations\sql\003-Create-items-table.sql

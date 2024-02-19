@@ -6,7 +6,7 @@ public interface IOrderRepository
 {
     Task<Guid> Add(OrderEntity order);
     Task AddItemToOrder(OrderItemEntity order);
-    Task Delete(Guid id);
+    Task<int> DeleteOrdersByDate(DateTime date);
     Task<IEnumerable<OrderEntity>> Get();
     Task<OrderEntity?> Get(Guid id);
     Task<OrderEntity?> GetUnfinishedOrder(int userId);

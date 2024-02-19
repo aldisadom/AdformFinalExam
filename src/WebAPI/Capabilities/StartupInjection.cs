@@ -1,6 +1,9 @@
 ﻿using Application;
+using Application.Interfaces;
+using Application.Services;
 using Clients;
 using Infrastructure;
+using WebAPI.BackgroundServices;
 
 namespace WebAPI.Capabilities;
 
@@ -27,6 +30,8 @@ public static class StartupInjection
             ?? throw new ArgumentNullException("Postgre connection string not found");
 
         services.AddInfrastructure(dbConnectionString);
+
+        services.AddHostedService<OrderCleaningBackgroundService>();
 
         return services;
     }

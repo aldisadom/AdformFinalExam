@@ -191,4 +191,9 @@ public class OrderService : IOrderService
 
         return orderStatusResponce;
     }
+
+    public async Task<int> CleanUnfinishedOrders(DateTime date)
+    {
+        return await _orderRepository.DeleteOrdersByDate(date);
+    }
 }

@@ -76,11 +76,11 @@ public class OrderRepository : IOrderRepository
         return (await _dbConnection.QuerySingleOrDefaultAsync<OrderEntity>(sql, order))!;
     }
 
-    public async Task Delete(Guid id)
+    public async Task<int> DeleteOrdersByDate(DateTime date)
     {
         string sql = @"DELETE FROM orders
-                        WHERE id=@Id";
+                        WHERE (create_date<@date AND status='Ordering')";
 
-        await _dbConnection.ExecuteAsync(sql, new { id });
+        return await _dbConnection.ExecuteAsync(sql, new { date });
     }
 }
