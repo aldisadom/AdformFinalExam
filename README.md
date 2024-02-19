@@ -18,7 +18,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/aldisadom/APIProjectTemplate">
+  <a href="https://github.com/aldisadom/AdformFinalExam">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -27,47 +27,15 @@
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
-    <a href="https://github.com/aldisadom/APIProjectTemplate"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/aldisadom/AdformFinalExam"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/aldisadom/APIProjectTemplate">View Demo</a>
+    <a href="https://github.com/aldisadom/AdformFinalExam">View Demo</a>
     ·
-    <a href="https://github.com/aldisadom/APIProjectTemplate/issues">Report Bug</a>
+    <a href="https://github.com/aldisadom/AdformFinalExam/issues">Report Bug</a>
     ·
-    <a href="https://github.com/aldisadom/APIProjectTemplate/issues">Request Feature</a>
-  </p>
-
-
-<!--
-*** If the README.txt has multiple languages, create README-*.md files in different languages in /docs and then link them here.
-*** I hope that others will also help to improve and add various language versions
--->
-<p align="center">
-    <a href="/docs/README_en.md">English</a>
-    <!--
-    ·
-    <a href="/docs/README_fr.md">Français </a>
-    ·
-    <a href="/docs/README_es.md">Español</a>
-    ·
-    <a href="/docs/README_de.md">Deutsch</a>
-    ·
-    <a href="/docs/README_ja.md">日本語</a>
-    ·
-    <a href="/docs/README_pt-BR.md">Português Brasileiro</a>
-    ·
-    <a href="/docs/README_it.md">Italiano</a>
-    ·
-    <a href="/docs/README_kr.md">한국어</a>
-    .
-    <a href="/docs/README_nl.md">Nederlands</a>
-    .
-    <a href="/docs/README_np.md">नेपाली</a>
-    .
-    <a href="/docs/README_tr.md">Türkçe</a>
-    -->
-  </p>
-    
+    <a href="https://github.com/aldisadom/AdformFinalExam/issues">Request Feature</a>
+  </p>    
 </div>
 
 
@@ -105,37 +73,29 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Your team is building an online marketplace and you are given a task to implement a RESTful API for order functionality:  
+An order is created when a user wants to buy an item on the marketplace.  
+Seller can deliver the item and mark the order as completed.  
+The orders that are not paid within 2 hours of creation need to be automatically deleted from the system.  
+A user should also be able to retrieve all of his orders.  
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+There is dependency. User information is hosted on another system and can be fetched from:  
+https://jsonplaceholder.typicode.com/users
+● Use best coding practices.  
+● For the bits of requirements that are unclear, use your best judgement and state when you do so.  
+● You don’t need to restrict access to the API endpoints, leave the authorisation logic not implemented.  
+● Please ensure data persistence.  
+● The code is not to be shared and should be comitted to private github!!  
+● All tools, including ChatGPT is allowed, but no collaboration from others is permitted  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+* .Net 8.0
+* ASP .NET Core
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -145,60 +105,38 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* Visual studio 2022 with .Net 8.0 and ASP .NET Core
+* Docker desktop installed
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+1. Clone the repo
+2. Copy settings from appsettings.json to appsettings.development.json
+3. Run docker compose
+4. Try it out <a href="https://localhost:8081/swagger/index.html"><strong>Adform final exam»</strong></a>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [ ] Functionality goes first
+- [ ] Validation and exception handling
+- [ ] Unit tests.
+- [ ] Readme file
+- [ ] Database schema, migrations.
+- [ ] REST design, REST design should follow Adform guidelines if possible.
+- [ ] Architecture and naming
+- [ ] Docker-compose
+- [ ] Api documentation
 
-See the [open issues](https://github.com/aldisadom/APIProjectTemplate/issues) for a full list of proposed features (and known issues).
+Easy bonus points for:
+- [ ] Migrations are done with Liquibase
+- [ ] Migrations have rollbacks.
+- [ ] RestClient or Postman collection for easier testing.
+- [ ] CQRS, mediator patterns implemented.
+- [ ] Integration tests
+
+See the [open issues](https://github.com/aldisadom/AdformFinalExam/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- CONTRIBUTING -->
@@ -260,16 +198,16 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 <!-- git -->
-[contributors-shield]: https://img.shields.io/github/contributors/aldisadom/APIProjectTemplate.svg?style=for-the-badge
-[contributors-url]: https://github.com/aldisadom/APIProjectTemplate/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/aldisadom/APIProjectTemplate.svg?style=for-the-badge
-[forks-url]: https://github.com/aldisadom/APIProjectTemplate/network/members
-[stars-shield]: https://img.shields.io/github/stars/aldisadom/APIProjectTemplate.svg?style=for-the-badge
-[stars-url]: https://github.com/aldisadom/APIProjectTemplate/stargazers
-[issues-shield]: https://img.shields.io/github/issues/aldisadom/APIProjectTemplate.svg?style=for-the-badge
-[issues-url]: https://github.com/aldisadom/APIProjectTemplate/issues
-[license-shield]: https://img.shields.io/github/license/aldisadom/APIProjectTemplate.svg?style=for-the-badge
-[license-url]: https://github.com/aldisadom/APIProjectTemplate/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/aldisadom/AdformFinalExam.svg?style=for-the-badge
+[contributors-url]: https://github.com/aldisadom/AdformFinalExam/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/aldisadom/AdformFinalExam.svg?style=for-the-badge
+[forks-url]: https://github.com/aldisadom/AdformFinalExam/network/members
+[stars-shield]: https://img.shields.io/github/stars/aldisadom/AdformFinalExam.svg?style=for-the-badge
+[stars-url]: https://github.com/aldisadom/AdformFinalExam/stargazers
+[issues-shield]: https://img.shields.io/github/issues/aldisadom/AdformFinalExam.svg?style=for-the-badge
+[issues-url]: https://github.com/aldisadom/AdformFinalExam/issues
+[license-shield]: https://img.shields.io/github/license/aldisadom/AdformFinalExam.svg?style=for-the-badge
+[license-url]: https://github.com/aldisadom/AdformFinalExam/blob/master/LICENSE.txt
 
 <!-- my links -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
