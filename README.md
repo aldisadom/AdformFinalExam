@@ -74,10 +74,10 @@
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Your team is building an online marketplace and you are given a task to implement a RESTful API for order functionality:  
-An order is created when a user wants to buy an item on the marketplace.  
-Seller can deliver the item and mark the order as completed.  
-The orders that are not paid within 2 hours of creation need to be automatically deleted from the system.  
-A user should also be able to retrieve all of his orders.  
+● An order is created when a user wants to buy an item on the marketplace.  
+● Seller can deliver the item and mark the order as completed.  
+● The orders that are not paid within 2 hours of creation need to be automatically deleted from the system.  
+● A user should also be able to retrieve all of his orders.  
 
 There is dependency. User information is hosted on another system and can be fetched from:  
 https://jsonplaceholder.typicode.com/users
