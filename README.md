@@ -25,7 +25,7 @@
   <h3 align="center">Best-README-Template</h3>
 
   <p align="center">
-    Fastest and easiest item selling platform, that can run or crash badly
+    Fastest and easiest item selling platform, that can run or crash badly  
     <a href="https://github.com/aldisadom/AdformFinalExam/issues">Request Feature</a>
   </p>    
 </div>
@@ -112,22 +112,22 @@ To get a local copy up and running follow these simple example steps.
 <!-- ROADMAP -->
 ## Roadmap
 
-- [+] Functionality goes first
-- [+] Validation and exception handling
-- [+-] Unit tests.
-- [+] Readme file
-- [+] Database schema, migrations.
-- [+] REST design, REST design should follow Adform guidelines if possible.
-- [+] Architecture and naming
-- [+] Docker-compose
-- [+] Api documentation
+[+] Functionality goes first
+[+] Validation and exception handling
+[+-] Unit tests.
+[+] Readme file
+[+] Database schema, migrations.
+[+] REST design, REST design should follow Adform guidelines if possible.
+[+] Architecture and naming
+[+] Docker-compose
+[+] Api documentation
 
 Easy bonus points for:
-- [+] Migrations are done with Liquibase
-- [+] Migrations have rollbacks.
-- [ ] RestClient or Postman collection for easier testing.
-- [ ] CQRS, mediator patterns implemented.
-- [ ] Integration tests
+[+] Migrations are done with Liquibase
+[+] Migrations have rollbacks.
+[ ] RestClient or Postman collection for easier testing.
+[ ] CQRS, mediator patterns implemented.
+[ ] Integration tests
 
 See the [open issues](https://github.com/aldisadom/AdformFinalExam/issues) for a full list of proposed features (and known issues).
 
