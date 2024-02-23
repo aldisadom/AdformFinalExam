@@ -102,7 +102,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 1. Clone the repo
-2. Run docker compose (if you get certificates error, I get this sometimes if you have solution please share how to fix)
+2. Run docker compose (if you get certificates error, I get this sometimes if you have solution please share how to fix)  
 2.5 If application fails to start in docker run it localy it will connect to database
 3. Try it out <a href="https://localhost:8081/swagger/index.html"><strong>EasySell</strong></a>
 4. Create Seller  
@@ -112,22 +112,22 @@ To get a local copy up and running follow these simple example steps.
 <!-- ROADMAP -->
 ## Roadmap
 
-[+] Functionality goes first
-[+] Validation and exception handling
-[+-] Unit tests.
-[+] Readme file
-[+] Database schema, migrations.
-[+] REST design, REST design should follow Adform guidelines if possible.
-[+] Architecture and naming
-[+] Docker-compose
-[+] Api documentation
+- [x] Functionality goes first
+- [x] Validation and exception handling
+- [x] Unit tests.
+- [x] Readme file
+- [x] Database schema, migrations.
+- [x] REST design, REST design should follow Adform guidelines if possible.
+- [x] Architecture and naming
+- [x] Docker-compose
+- [x] Api documentation
 
 Easy bonus points for:
-[+] Migrations are done with Liquibase
-[+] Migrations have rollbacks.
-[ ] RestClient or Postman collection for easier testing.
-[ ] CQRS, mediator patterns implemented.
-[ ] Integration tests
+- [x] Migrations are done with Liquibase
+- [x] Migrations have rollbacks.
+- [ ] RestClient or Postman collection for easier testing.
+- [ ] CQRS, mediator patterns implemented.
+- [ ] Integration tests
 
 See the [open issues](https://github.com/aldisadom/AdformFinalExam/issues) for a full list of proposed features (and known issues).
 
