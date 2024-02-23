@@ -26,13 +26,17 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "migrations", "migrations", "{344F1A52-EF45-4452-A9E5-E85DF261C173}"
 	ProjectSection(SolutionItems) = preProject
-		migrations\sql\001-Create-seller-table.sql = migrations\sql\001-Create-seller-table.sql
 		migrations\dbChangeLog.yaml = migrations\dbChangeLog.yaml
-		migrations\sql\006-Alter-orders-table-add-date.sql = migrations\sql\006-Alter-orders-table-add-date.sql
-		migrations\sql\005-Create-orders-items-table.sql = migrations\sql\005-Create-orders-items-table.sql
-		migrations\sql\004-Create-orders-table.sql = migrations\sql\004-Create-orders-table.sql
-		migrations\sql\003-Create-items-table.sql = migrations\sql\003-Create-items-table.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{7B4906EA-F7D8-45B0-AABE-B677B1D7FCFB}"
+	ProjectSection(SolutionItems) = preProject
+		migrations\sql\001-Create-seller-table.sql = migrations\sql\001-Create-seller-table.sql
 		migrations\sql\002-Create-user-table.sql = migrations\sql\002-Create-user-table.sql
+		migrations\sql\003-Create-items-table.sql = migrations\sql\003-Create-items-table.sql
+		migrations\sql\004-Create-orders-table.sql = migrations\sql\004-Create-orders-table.sql
+		migrations\sql\005-Create-orders-items-table.sql = migrations\sql\005-Create-orders-items-table.sql
+		migrations\sql\006-Alter-orders-table-add-date.sql = migrations\sql\006-Alter-orders-table-add-date.sql
 	EndProjectSection
 EndProject
 Global
@@ -76,6 +80,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B4906EA-F7D8-45B0-AABE-B677B1D7FCFB} = {344F1A52-EF45-4452-A9E5-E85DF261C173}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD07335F-3666-4F35-8CFE-3158C048976C}
